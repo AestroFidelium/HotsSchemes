@@ -1,0 +1,3 @@
+<tree xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="d:\Projects\HotsMakeEasy\Universal-SC2-Plus-Hots-All-Files.xsd">
+    <node name="Tower Target Selector" type="UniqueValue" id="UniqueValue"></node>
+</tree>
