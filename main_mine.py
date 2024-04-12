@@ -100,7 +100,6 @@ class Attr:
 
     def to_json(self):
         return {self.name: self.get_unique_values, "is_optional": self.is_optional}
-        # return {"test_name":self.name}
     
     
     @property
@@ -228,7 +227,6 @@ class Tag:
         childrens = "".join(map(lambda tag: tag.to_xsd(), self.children))
         
         # sequence usually named but lets try rename to choice
-        
         sequence = """<xs:choice minOccurs="0" maxOccurs="unbounded">
                 %CHILDRENS%
             </xs:choice>""".replace(
@@ -331,7 +329,6 @@ class Tag:
                     my_attr.add_new_values(attr)
                     break
             if not is_attr_exits:
-                # attr.is_optional = True
                 fixed_attrs.append(attr)
         
         return fixed_attrs
@@ -356,7 +353,7 @@ class Tag:
 
 def get_xml_files(directory, endswith):
     """Получить список XML файлов в директории."""
-    for root, dirs, files in os.walk(directory):
+    for root, _, files in os.walk(directory):
         for file in files:
             if file.lower().endswith(endswith):
                 yield os.path.join(root, file)
@@ -423,8 +420,6 @@ def output_json(filename = "output.json"):
 
 if __name__ == "__main__":
     sys.setrecursionlimit(20000000)
-    # directory = "D:\\Projects\\HotsMakeEasy\\TestFiles"
-    # directory = 'D:\\Projects\\HotsDeveloper\\SC2Extract'
     universal = list(get_xml_files("D:\\Projects\\HotsDeveloper\\mods", ".xml"))
     universal.extend(list(get_xml_files("D:\\Projects\\HotsDeveloper\\mods", ".aitree")))
     universal.extend(list(get_xml_files("D:\\Projects\\HotsDeveloper\\mods", ".stormlayout")))
