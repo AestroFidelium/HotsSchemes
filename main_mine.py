@@ -1,12 +1,10 @@
 import os
 import bs4
 import json
-from collections import defaultdict, Counter
+from collections import Counter
 import sys
-import yaml
-import types
 import lxml.etree as etree
-from alive_progress import alive_bar, alive_it
+from alive_progress import alive_it
 
 def format_xml_lxml(filename):
     parser = etree.XMLParser(remove_blank_text=True)
@@ -14,7 +12,7 @@ def format_xml_lxml(filename):
     tree.write(filename, pretty_print=True, encoding='utf-8')
 
 class Attr:
-    def __init__(self, name, value) -> types.NoneType:
+    def __init__(self, name, value):
         self.name = name
         if isinstance(value, list):
             self.value = value
